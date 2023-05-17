@@ -1,0 +1,38 @@
+[
+  {
+    "picture": "https://i.ibb.co/Rj9MCS6/1.webp",
+    "name": "Teddy ",
+    "price": 19.99,
+    "rating": 4.5
+  },
+  {
+    "picture": "https://i.ibb.co/f850Lgp/7.webp",
+    "name": "Bear",
+    "price": 29.99,
+    "rating": 4.2
+  },
+  {
+    "picture": "https://i.ibb.co/YQV7TKw/gettyimages-183770959-612x612.jpg",
+    "name": "Puzzle ",
+    "price": 14.99,
+    "rating": 3.8
+  },
+  {
+    "picture": "https://i.ibb.co/Mg7HsSv/3.webp",
+    "name": "Car Puzzle",
+    "price": 24.99,
+    "rating": 4.7
+  },
+  {
+    "picture": "https://i.ibb.co/7GjkQTM/gettyimages-183842628-612x612.jpg",
+    "name": "Busket Ball",
+    "price": 24.99,
+    "rating": 4.7
+  },
+  {
+    "picture": "https://i.ibb.co/F85RBV4/2.webp",
+    "name": "Dise Ball",
+    "price": 24.99,
+    "rating": 4.7
+  }
+]
