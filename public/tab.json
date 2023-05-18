@@ -28,7 +28,7 @@
     "name": "Car Puzzle",
     "price": 24.99,
     "rating": 4.7,
-    "quantity": 3,
+    "quantity ": 3,
     "subCategory": "Puzzles"
   },
   {

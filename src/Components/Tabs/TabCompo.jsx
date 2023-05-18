@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
@@ -8,7 +9,7 @@ const TabCompo = () => {
   useEffect(() => {
     const fetchTabData = async () => {
       try {
-        const response = await fetch("/tab.json");
+        const response = await fetch("http://localhost:5000/toys");
         const data = await response.json();
         setTabDatas(data);
       } catch (error) {
@@ -43,7 +44,10 @@ const TabCompo = () => {
                   <p className="text-xl">Price: ${tabData.price}</p>
                   <p className="text-xl">Rating: {tabData.rating}</p>
                   <div className="card-actions justify-end">
-                    <button className="btn  btn-link"> View Details</button>
+                    <Link>
+                      {" "}
+                      <button className="btn  btn-link"> View Details</button>
+                    </Link>
                   </div>
                 </div>
               </div>
