@@ -29,7 +29,7 @@ const AllToy = () => {
           hours of fun and laughter.
         </p>
       </div>
-      <div className="grid md:grid-cols-3 gap-4">
+      <div>
         {toys.map((toy) => (
           <Toy key={toy._id} toy={toy}></Toy>
         ))}
