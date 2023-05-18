@@ -7,7 +7,7 @@ const TabCompo = () => {
   const [datas, setDatas] = useState([]);
 
   useEffect(() => {
-    const fetchdata = async () => {
+    const fetchData = async () => {
       try {
         const response = await fetch("http://localhost:5000/toys");
         const data = await response.json();
@@ -17,7 +17,7 @@ const TabCompo = () => {
       }
     };
 
-    fetchdata();
+    fetchData();
   }, []);
 
   return (
