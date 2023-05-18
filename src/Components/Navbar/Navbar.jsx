@@ -52,6 +52,14 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
+                <Link
+                  to="/alltoy"
+                  className={isActiveRoute("/alltoy") ? "active" : ""}
+                >
+                  AllToys
+                </Link>
+              </li>{" "}
+              <li>
                 <Link className={isActiveRoute("/dekhajak") ? "active" : ""}>
                   Item 3
                 </Link>
@@ -78,6 +86,14 @@ const Navbar = () => {
                 className={isActiveRoute("/blog") ? "active" : ""}
               >
                 Blog
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/alltoy"
+                className={isActiveRoute("/alltoy") ? "active" : ""}
+              >
+                AllToys
               </Link>
             </li>
             <li>

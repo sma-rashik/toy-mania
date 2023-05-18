@@ -46,8 +46,8 @@ const TabCompo = () => {
                     <p className="text-xl">Price: ${data.price}</p>
                     <p className="text-xl">Rating: {data.rating}</p>
                     <div className="card-actions justify-end">
-                      <Link to={`/toy/${data._id}`}>
-                        <button className="btn  btn-link"> View Details</button>
+                      <Link to={`/toys/${data._id}`}>
+                        <button className="btn btn-link">View Details</button>
                       </Link>
                     </div>
                   </div>
@@ -72,9 +72,8 @@ const TabCompo = () => {
                     <p className="text-xl">Price: ${data.price}</p>
                     <p className="text-xl">Rating: {data.rating}</p>
                     <div className="card-actions justify-end">
-                      <Link to={`/toy/${data.id}`}>
-                        {" "}
-                        <button className="btn  btn-link"> View Details</button>
+                      <Link to={`/toys/${data._id}`}>
+                        <button className="btn btn-link">View Details</button>
                       </Link>
                     </div>
                   </div>
@@ -99,9 +98,8 @@ const TabCompo = () => {
                     <p className="text-xl">Price: ${data.price}</p>
                     <p className="text-xl">Rating: {data.rating}</p>
                     <div className="card-actions justify-end">
-                      <Link to={`/toy/${data.id}`}>
-                        {" "}
-                        <button className="btn  btn-link"> View Details</button>
+                      <Link to={`/toys/${data._id}`}>
+                        <button className="btn btn-link">View Details</button>
                       </Link>
                     </div>
                   </div>
