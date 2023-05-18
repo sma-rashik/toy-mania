@@ -16,9 +16,8 @@ const Gallery = () => {
           Favourite Toys <br /> Choosen By Kids
         </h1>
         <p className="py-6 text-xl">
-          Provident cupiditate voluptatem et in. Quaerat fugiat ut <br />{" "}
-          assumenda excepturi exercitationem quasi. In deleniti <br /> eaque aut
-          repudiandae et a id nisi.
+          Chosen by kids, these cherished playthings ignite imagination,
+          providing endless fun and cherished memories
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 p-11 gap-4">

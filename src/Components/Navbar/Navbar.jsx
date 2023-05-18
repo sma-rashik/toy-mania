@@ -1,7 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const location = useLocation();
+  console.log(user);
+  const handleLogOut = () => {
+    logOut();
+  };
+
+  const isActiveRoute = (route) => {
+    return location.pathname === route;
+  };
   return (
     <>
       <div className="navbar bg-base-100">
@@ -28,7 +39,7 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link>Item 1</Link>
+                <Link to="/">Home</Link>
               </li>
               <li tabIndex={0}>
                 <Link className="justify-between">Parent</Link>
@@ -43,7 +54,7 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link>Item 1</Link>
+              <Link to="/">Home</Link>
             </li>
             <li tabIndex={0}>
               <Link>Parent</Link>
@@ -53,24 +64,51 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className="navbar-end">
-          <div className="sm:flex sm:gap-4">
-            <Link
-              className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
-              to="/login"
-            >
-              Login
-            </Link>
 
-            <div className="hidden sm:flex">
+        <div className="navbar-end">
+          {user ? (
+            <div>
+              <div className="avatar mt-2">
+                <div className="w-8  rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  {user.photoURL ? (
+                    <img
+                      src={user.photoURL}
+                      alt={user.displayName}
+                      title={user.displayName}
+                    />
+                  ) : (
+                    <img src="https://i.ibb.co/zRCMzv0/download.jpg" alt="" />
+                  )}
+                </div>
+              </div>
               <Link
-                className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
-                to="/signup"
+                onClick={handleLogOut}
+                className="inline-block rounded-ful mx-2 bg-gradient-to-r from-teal-400 via-blue-500-500 to-purple-600 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
               >
-                Register
+                <span className="block rounded-full  bg-white px-8 py-3 text-sm font-medium hover:bg-transparent">
+                  LogOut
+                </span>
               </Link>
             </div>
-          </div>
+          ) : (
+            <div className="sm:flex sm:gap-4">
+              <Link
+                className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+                to="/login"
+              >
+                Login
+              </Link>
+
+              <div className="hidden sm:flex">
+                <Link
+                  className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
+                  to="/signup"
+                >
+                  Register
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>

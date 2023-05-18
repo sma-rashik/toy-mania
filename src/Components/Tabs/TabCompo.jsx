@@ -28,7 +28,7 @@ const TabCompo = () => {
           <Tab>Balls</Tab>
         </TabList>
 
-        <div className="grid grid-cols-2 gap-4 m-20">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-4 m-20">
           <TabPanel>
             {tabDatas.slice(0, 2).map((tabData) => (
               <div
@@ -39,11 +39,11 @@ const TabCompo = () => {
                   <img className="h-72 w-96" src={tabData.picture} alt="Toy" />
                 </figure>
                 <div className="card-body">
-                  <h2 className="card-title">{tabData.name}</h2>
-                  <p>Price: ${tabData.price}</p>
-                  <p>Rating: {tabData.rating}</p>
+                  <h2 className="card-title font-bold">Name: {tabData.name}</h2>
+                  <p className="text-xl">Price: ${tabData.price}</p>
+                  <p className="text-xl">Rating: {tabData.rating}</p>
                   <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button className="btn  btn-link"> View Details</button>
                   </div>
                 </div>
               </div>
@@ -60,10 +60,10 @@ const TabCompo = () => {
                 </figure>
                 <div className="card-body">
                   <h2 className="card-title">{tabData.name}</h2>
-                  <p>Price: ${tabData.price}</p>
-                  <p>Rating: {tabData.rating}</p>
+                  <p className="text-xl">Price: ${tabData.price}</p>
+                  <p className="text-xl">Rating: {tabData.rating}</p>
                   <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button className="btn  btn-link"> View Details</button>
                   </div>
                 </div>
               </div>
@@ -80,10 +80,10 @@ const TabCompo = () => {
                 </figure>
                 <div className="card-body">
                   <h2 className="card-title">{tabData.name}</h2>
-                  <p>Price: ${tabData.price}</p>
-                  <p>Rating: {tabData.rating}</p>
+                  <p className="text-xl">Price: ${tabData.price}</p>
+                  <p className="text-xl">Rating: {tabData.rating}</p>
                   <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button className="btn  btn-link"> View Details</button>
                   </div>
                 </div>
               </div>

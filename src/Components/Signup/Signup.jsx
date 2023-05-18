@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import SocialAuth from "../SocialAuth/SocialAuth";
 
 const Signup = () => {
-  const handleLogin = (event) => {
-    const { createUser } = useContext(AuthContext);
+  const { createUser } = useContext(AuthContext);
+  const handleSignup = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
@@ -35,7 +36,7 @@ const Signup = () => {
           </p>
 
           <form
-            onSubmit={handleLogin}
+            onSubmit={handleSignup}
             action=""
             className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
           >
@@ -99,10 +100,7 @@ const Signup = () => {
               </div>
             </div>
 
-            <button
-              type="submit"
-              className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
-            >
+            <button className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white">
               Sign Up
             </button>
 
@@ -112,6 +110,7 @@ const Signup = () => {
                 Sign in
               </Link>
             </p>
+            <SocialAuth />
           </form>
         </div>
       </div>
