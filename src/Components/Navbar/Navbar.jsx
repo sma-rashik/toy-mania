@@ -39,17 +39,20 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link className={isActiveRoute("/blog") ? "active" : ""} to="/">
+                <Link className={isActiveRoute("/") ? "active" : ""} to="/">
                   Home
                 </Link>
               </li>
               <li tabIndex={0}>
-                <Link className={isActiveRoute("/blog") ? "active" : ""}>
+                <Link
+                  to="/blog"
+                  className={isActiveRoute("/blog") ? "active" : ""}
+                >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link className={isActiveRoute("/blog") ? "active" : ""}>
+                <Link className={isActiveRoute("/dekhajak") ? "active" : ""}>
                   Item 3
                 </Link>
               </li>
@@ -65,17 +68,20 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link className={isActiveRoute("/blog") ? "active" : ""} to="/">
+              <Link className={isActiveRoute("/") ? "active" : ""} to="/">
                 Home
               </Link>
             </li>
             <li tabIndex={0}>
-              <Link className={isActiveRoute("/blog") ? "active" : ""}>
+              <Link
+                to="/blog"
+                className={isActiveRoute("/blog") ? "active" : ""}
+              >
                 Blog
               </Link>
             </li>
             <li>
-              <Link className={isActiveRoute("/blog") ? "active" : ""}>
+              <Link className={isActiveRoute("/dekhajak") ? "active" : ""}>
                 Item 3
               </Link>
             </li>
