@@ -21,6 +21,19 @@ const AddToys = () => {
       quantity,
     };
     console.log(newToy);
+    fetch(`http://localhost:5000/addToys`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(newToy),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId > 0) {
+        }
+      });
   };
   return (
     <div>
@@ -73,7 +86,7 @@ const AddToys = () => {
                       placeholder="Name "
                       name="name"
                       type="text"
-                      id="email"
+                      id="name"
                     />
                   </div>
 

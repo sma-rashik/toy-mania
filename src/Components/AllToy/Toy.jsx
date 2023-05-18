@@ -30,7 +30,7 @@ const Toy = ({ toy }) => {
           <thead className="ltr:text-left rtl:text-right">
             <tr>
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                Toy Name
+                Toy Image
               </th>
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                 Name
