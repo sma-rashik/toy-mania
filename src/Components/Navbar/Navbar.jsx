@@ -39,28 +39,45 @@ const Navbar = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to="/">Home</Link>
+                <Link className={isActiveRoute("/blog") ? "active" : ""} to="/">
+                  Home
+                </Link>
               </li>
               <li tabIndex={0}>
-                <Link className="justify-between">Parent</Link>
+                <Link className={isActiveRoute("/blog") ? "active" : ""}>
+                  Blog
+                </Link>
               </li>
               <li>
-                <Link>Item 3</Link>
+                <Link className={isActiveRoute("/blog") ? "active" : ""}>
+                  Item 3
+                </Link>
               </li>
             </ul>
           </div>
-          <Link className="btn btn-ghost normal-case text-xl">daisyUI</Link>
+          <Link
+            className="text-3xl font-semibold font-serif underline hover:text-blue-500"
+            to="/"
+          >
+            Toy mania
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link to="/">Home</Link>
+              <Link className={isActiveRoute("/blog") ? "active" : ""} to="/">
+                Home
+              </Link>
             </li>
             <li tabIndex={0}>
-              <Link>Parent</Link>
+              <Link className={isActiveRoute("/blog") ? "active" : ""}>
+                Blog
+              </Link>
             </li>
             <li>
-              <Link>Item 3</Link>
+              <Link className={isActiveRoute("/blog") ? "active" : ""}>
+                Item 3
+              </Link>
             </li>
           </ul>
         </div>
