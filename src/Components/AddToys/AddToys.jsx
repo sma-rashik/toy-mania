@@ -32,6 +32,7 @@ const AddToys = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        form.reset();
         if (data.insertedId > 0) {
           Swal.fire({
             title: "success",
@@ -89,16 +90,19 @@ const AddToys = () => {
                   </div>
 
                   <div>
-                    <label className="sr-only" htmlFor="phone">
+                    <label className="sr-only" htmlFor="category">
                       Sub-category
                     </label>
-                    <input
+                    <select
                       className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                      placeholder="Sub-category.(Soft Toys/Board Games/Sports)"
-                      type="text"
                       name="category"
-                      id="phone"
-                    />
+                      id="category"
+                    >
+                      <option value="">Select sub-category</option>
+                      <option value="softToys">Soft Toys</option>
+                      <option value="boardGames">Board Games</option>
+                      <option value="sports">Sports</option>
+                    </select>
                   </div>
                 </div>
 

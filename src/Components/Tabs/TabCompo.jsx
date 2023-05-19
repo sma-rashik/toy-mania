@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const TabCompo = () => {
   const [datas, setDatas] = useState([]);
@@ -20,6 +22,9 @@ const TabCompo = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    AOS.init(); // Initialize AOS library
+  }, []);
   return (
     <div className="flex">
       <Tabs>
@@ -39,7 +44,12 @@ const TabCompo = () => {
                   className="card flex card-compact bg-base-100 shadow-xl"
                 >
                   <figure>
-                    <img className="h-72 w-96" src={data.picture} alt="Toy" />
+                    <img
+                      data-aos="fade-up"
+                      className="h-72 w-96"
+                      src={data.picture}
+                      alt="Toy"
+                    />
                   </figure>
                   <div className="card-body">
                     <h2 className="card-title font-bold">Name: {data.name}</h2>
@@ -65,7 +75,12 @@ const TabCompo = () => {
                   className="card card-compact bg-base-100 shadow-xl"
                 >
                   <figure>
-                    <img className="h-72 w-96" src={data.picture} alt="Toy" />
+                    <img
+                      data-aos="fade-down"
+                      className="h-72 w-96"
+                      src={data.picture}
+                      alt="Toy"
+                    />
                   </figure>
                   <div className="card-body">
                     <h2 className="card-title font-bold">Name: {data.name}</h2>
@@ -91,7 +106,12 @@ const TabCompo = () => {
                   className="card  card-compact bg-base-100 shadow-xl"
                 >
                   <figure>
-                    <img className="h-72 w-96" src={data.picture} alt="Toy" />
+                    <img
+                      data-aos="fade-left"
+                      className="h-72 w-96"
+                      src={data.picture}
+                      alt="Toy"
+                    />
                   </figure>
                   <div className="card-body">
                     <h2 className="card-title font-bold">Name: {data.name}</h2>

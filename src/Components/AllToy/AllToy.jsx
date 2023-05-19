@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Toy from "./Toy";
 
 const AllToy = () => {
-  const toys = useLoaderData();
+  const toys = useLoaderData().slice(0, 20);
   console.log(toys);
   return (
     <>

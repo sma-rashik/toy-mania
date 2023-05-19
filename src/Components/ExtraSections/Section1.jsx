@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Section1 = () => {
+  useEffect(() => {
+    AOS.init(); // Initialize AOS library
+  }, []);
   return (
     <div>
       <section>
@@ -9,6 +14,7 @@ const Section1 = () => {
             <div className="relative z-10 lg:py-16">
               <div className="relative h-64 sm:h-80 lg:h-full">
                 <img
+                  data-aos="zoom-in-up"
                   alt="House"
                   src="https://i.ibb.co/yFzv5gw/hand-drawn-kids-toys-facebook-post-23-2149614434.jpg"
                   className="absolute inset-0 h-full w-full object-cover"

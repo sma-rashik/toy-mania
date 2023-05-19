@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Banner = () => {
+  useEffect(() => {
+    AOS.init(); // Initialize AOS library
+  }, []);
   return (
     <>
-      <section className="relative mt-10     bg-[url(https://i.ibb.co/jbRfkZZ/hand-drawn-christmas-toys-background-23-2148758008.jpg)] bg-cover bg-center bg-no-repeat">
+      <section
+        data-aos="zoom-in-up"
+        className="relative mt-10     bg-[url(https://i.ibb.co/jbRfkZZ/hand-drawn-christmas-toys-background-23-2148758008.jpg)] bg-cover bg-center bg-no-repeat"
+      >
         <div className="absolute "></div>
 
         <div className="mx-auto max-w-screen-xl px-4 py-28 lg:flex lg:h-screen lg:items-center">
