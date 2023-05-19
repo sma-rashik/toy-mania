@@ -29,14 +29,14 @@ const TabCompo = () => {
           <Tab>Sports</Tab>
         </TabList>
 
-        <div className="grid md:grid-cols-2 grid-cols-1 gap-4 m-20">
-          <TabPanel>
+        <div className="flex gap-4 m-20">
+          <TabPanel className="flex">
             {datas
               .filter((data) => data.subCategory === "Soft Toys")
               .map((data) => (
                 <div
                   key={data.name}
-                  className="card card-compact bg-base-100 shadow-xl"
+                  className="card flex card-compact bg-base-100 shadow-xl"
                 >
                   <figure>
                     <img className="h-72 w-96" src={data.picture} alt="Toy" />
@@ -88,7 +88,7 @@ const TabCompo = () => {
               .map((data) => (
                 <div
                   key={data.name}
-                  className="card card-compact bg-base-100 shadow-xl"
+                  className="card  card-compact bg-base-100 shadow-xl"
                 >
                   <figure>
                     <img className="h-72 w-96" src={data.picture} alt="Toy" />

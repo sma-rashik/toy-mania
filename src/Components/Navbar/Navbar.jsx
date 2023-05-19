@@ -58,22 +58,30 @@ const Navbar = () => {
                 >
                   AllToys
                 </Link>
-              </li>{" "}
-              <li>
-                <Link
-                  to="/addtoys"
-                  className={isActiveRoute("/addtoys") ? "active" : ""}
-                >
-                  Item 3
-                </Link>
-              </li>{" "}
-              <li>
-                <Link className={isActiveRoute("/dekhajak") ? "active" : ""}>
-                  Item 3
-                </Link>
               </li>
+              {user && (
+                <>
+                  <li>
+                    <Link
+                      to="/addtoys"
+                      className={isActiveRoute("/addtoys") ? "active" : ""}
+                    >
+                      Add Toys
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/mytoys"
+                      className={isActiveRoute("/mytoys") ? "active" : ""}
+                    >
+                      My Toys
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
+
           <Link
             className="text-3xl font-semibold font-serif underline hover:text-blue-500"
             to="/"
@@ -81,6 +89,7 @@ const Navbar = () => {
             Toy mania
           </Link>
         </div>
+
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
@@ -104,19 +113,26 @@ const Navbar = () => {
                 AllToys
               </Link>
             </li>
-            <li>
-              <Link
-                to="/addtoys"
-                className={isActiveRoute("/addtoys") ? "active" : ""}
-              >
-                Add Toys
-              </Link>
-            </li>{" "}
-            <li>
-              <Link className={isActiveRoute("/dekhajak") ? "active" : ""}>
-                Item 3
-              </Link>
-            </li>
+            {user && (
+              <>
+                <li>
+                  <Link
+                    to="/addtoys"
+                    className={isActiveRoute("/addtoys") ? "active" : ""}
+                  >
+                    Add Toys
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/mytoys"
+                    className={isActiveRoute("/mytoys") ? "active" : ""}
+                  >
+                    My Toys
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
 
