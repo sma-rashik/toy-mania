@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
+import Swal from "sweetalert2";
 
 const AddToys = () => {
+  const formRef = useRef(null);
+
   const handleAddToy = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -32,9 +35,18 @@ const AddToys = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId > 0) {
+          Swal.fire({
+            title: "Success!",
+            text: "Toys added",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+          // Reset the form
+          formRef.current.reset();
         }
       });
   };
+
   return (
     <div>
       <section className="bg-gray-100">
@@ -46,20 +58,15 @@ const AddToys = () => {
                 independent from manufacturer and other group control gives you
                 confidence that we will only recommend what is right for you.
               </p>
-
-              <div className="mt-8">
-                <a href="" className="text-2xl font-bold text-pink-600">
-                  0151 475 4450
-                </a>
-
-                <address className="mt-2 not-italic">
-                  282 Kevin Brook, Imogeneborough, CA 58517
-                </address>
-              </div>
             </div>
 
             <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-              <form onSubmit={handleAddToy} action="" className="space-y-4">
+              <form
+                ref={formRef}
+                onSubmit={handleAddToy}
+                action=""
+                className="space-y-4"
+              >
                 <h1 className="text-3xl font-semibold underline mb-10 text-center">
                   Add Toys Here:
                 </h1>
@@ -72,7 +79,7 @@ const AddToys = () => {
                     placeholder="Photo Url"
                     type="url"
                     name="photo"
-                    id="name"
+                    id="photo"
                   />
                 </div>
 

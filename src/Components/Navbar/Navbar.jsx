@@ -60,6 +60,14 @@ const Navbar = () => {
                 </Link>
               </li>{" "}
               <li>
+                <Link
+                  to="/addtoys"
+                  className={isActiveRoute("/addtoys") ? "active" : ""}
+                >
+                  Item 3
+                </Link>
+              </li>{" "}
+              <li>
                 <Link className={isActiveRoute("/dekhajak") ? "active" : ""}>
                   Item 3
                 </Link>
@@ -96,6 +104,14 @@ const Navbar = () => {
                 AllToys
               </Link>
             </li>
+            <li>
+              <Link
+                to="/addtoys"
+                className={isActiveRoute("/addtoys") ? "active" : ""}
+              >
+                Add Toys
+              </Link>
+            </li>{" "}
             <li>
               <Link className={isActiveRoute("/dekhajak") ? "active" : ""}>
                 Item 3
