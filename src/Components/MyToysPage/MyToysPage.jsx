@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 const MyToysPage = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
+  const [sort, setSort] = useState("asc"); // Sort order state, "asc" or "desc"
 
   useEffect(() => {
-    // Fetch all toys
-    fetch("http://localhost:5000/addtoys", {
+    // Fetch toys with sorting
+    fetch(`http://localhost:5000/toys?sort=${sort}`, {
       method: "GET",
       headers: {},
     })
@@ -22,7 +23,11 @@ const MyToysPage = () => {
       .catch((error) => {
         console.error("Error fetching toys:", error);
       });
-  }, [user]);
+  }, [user, sort]);
+
+  const handleSortChange = (e) => {
+    setSort(e.target.value); // Update the sort state when the user selects a different sorting order
+  };
 
   const handleUpdateToy = (toyId) => {
     // Handle the update action for a specific toy
@@ -90,60 +95,78 @@ const MyToysPage = () => {
         {toys.length === 0 ? (
           <p>No toys found.</p>
         ) : (
-          <table className="min-w-full mb-5 divide-y-2 divide-gray-200 bg-white text-sm">
-            <thead className="ltr:text-left rtl:text-right">
-              <tr>
-                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                  Toy Image
-                </th>
-                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                  Name
-                </th>
-                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                  Available Quantity
-                </th>
-                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                  Price
-                </th>
-                <th className="px-4 py-2"></th>
-              </tr>
-            </thead>
+          <>
+            {/* Add sorting UI elements */}
+            <div className="text-center m-10">
+              <label htmlFor="sort" className="mr-2">
+                Sort Order:
+              </label>
+              <select
+                id="sort"
+                value={sort}
+                onChange={handleSortChange}
+                className="border border-gray-300 rounded px-2 py-1"
+              >
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+              </select>
+            </div>
 
-            <tbody className="divide-y text-center divide-gray-200">
-              {toys.map((toy) => (
-                <tr key={toy._id}>
-                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    <img className="w-28 h-28" src={toy.picture} alt="" />
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 font-semibold text-gray-700">
-                    {toy.name}
-                  </td>
-                  <td className="whitespace-nowrap font-semibold px-4 py-2 text-gray-700">
-                    {toy.quantity}
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2 font-semibold text-gray-700">
-                    ${toy.price}
-                  </td>
-                  <td className="whitespace-nowrap px-4 py-2">
-                    <Link to={`/updatetoy/${toy._id}`}>
-                      <button
-                        onClick={() => handleUpdateToy(toy._id)}
-                        className="mr-2 btn btn-link"
-                      >
-                        Update
-                      </button>
-                    </Link>
-                    <button
-                      className="btn btn-link"
-                      onClick={() => handleDeleteToy(toy._id)}
-                    >
-                      Delete
-                    </button>
-                  </td>
+            <table className="min-w-full mb-5 divide-y-2 divide-gray-200 bg-white text-sm">
+              <thead className="ltr:text-left rtl:text-right">
+                <tr>
+                  <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                    Toy Image
+                  </th>
+                  <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                    Name
+                  </th>
+                  <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                    Available Quantity
+                  </th>
+                  <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                    Price
+                  </th>
+                  <th className="px-4 py-2"></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+
+              <tbody className="divide-y text-center divide-gray-200">
+                {toys.map((toy) => (
+                  <tr key={toy._id}>
+                    <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                      <img className="w-28 h-28" src={toy.picture} alt="" />
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 font-semibold text-gray-700">
+                      {toy.name}
+                    </td>
+                    <td className="whitespace-nowrap font-semibold px-4 py-2 text-gray-700">
+                      {toy.quantity}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2 font-semibold text-gray-700">
+                      ${toy.price}
+                    </td>
+                    <td className="whitespace-nowrap px-4 py-2">
+                      <Link to={`/updatetoy/${toy._id}`}>
+                        <button
+                          onClick={() => handleUpdateToy(toy._id)}
+                          className="mr-2 btn btn-link"
+                        >
+                          Update
+                        </button>
+                      </Link>
+                      <button
+                        className="btn btn-link"
+                        onClick={() => handleDeleteToy(toy._id)}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
         )}
       </div>
     </>

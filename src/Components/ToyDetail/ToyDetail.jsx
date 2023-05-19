@@ -29,7 +29,7 @@ const ToyDetail = () => {
               <p className="mt-2 text-lg font-semibold">
                 Sub-Category: {subCategory}
               </p>
-              <p className="mt-2 text-lg font-semibold ">Price: {price}</p>
+              <p className="mt-2 text-lg font-semibold ">Price: ${price}</p>
               <p className="mt-2 text-lg font-semibold">Rating: {rating}</p>
               <p className="mt-2 text-lg font-semibold">
                 Available Quantity: {quantity}
