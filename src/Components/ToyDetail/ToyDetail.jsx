@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 
 const ToyDetail = () => {
   const toys = useLoaderData();
   const { picture, name, price, rating, quantity, subCategory, description } =
     toys;
+  useEffect(() => {
+    document.title = "ToyMania | ToyDetails";
+  }, []);
   return (
     <>
       <section className="relative mt-10     bg-[url(https://i.ibb.co/jbRfkZZ/hand-drawn-christmas-toys-background-23-2148758008.jpg)] bg-cover bg-center bg-no-repeat">

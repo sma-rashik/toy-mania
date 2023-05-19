@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Toy from "./Toy";
 
@@ -14,7 +14,9 @@ const AllToy = () => {
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
-
+  useEffect(() => {
+    document.title = "ToyMania | AllToy";
+  }, []);
   return (
     <>
       <section className="relative mt-10 mb-5 bg-[url(https://i.ibb.co/jbRfkZZ/hand-drawn-christmas-toys-background-23-2148758008.jpg)] bg-cover bg-center bg-no-repeat">

@@ -9,6 +9,7 @@ import Section1 from "../ExtraSections/Section1";
 const Home = () => {
   useEffect(() => {
     AOS.init(); // Initialize AOS library
+    document.title = "ToyMania | Home";
   }, []);
 
   return (

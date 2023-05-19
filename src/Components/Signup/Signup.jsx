@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import SocialAuth from "../SocialAuth/SocialAuth";
+import Swal from "sweetalert2";
 
 const Signup = () => {
   const { createUser } = useContext(AuthContext);
+
   const handleSignup = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -12,16 +14,34 @@ const Signup = () => {
     const name = form.name.value;
     const photo = form.photo.value;
     const password = form.password.value;
-    console.log(email, name, photo, password);
+
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
+
+        // Show SweetAlert success alert
+        Swal.fire({
+          icon: "success",
+          title: "Registration Successful",
+          text: "You have been registered successfully!",
+        });
       })
-      .then((error) => {
+      .catch((error) => {
         console.log(error);
+
+        // Show SweetAlert error alert
+        Swal.fire({
+          icon: "error",
+          title: "Registration Failed",
+          text: "An error occurred during registration.",
+        });
       });
   };
+
+  useEffect(() => {
+    document.title = "ToyMania | SignUp";
+  }, []);
   return (
     <div>
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">

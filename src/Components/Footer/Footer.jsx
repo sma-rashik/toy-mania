@@ -39,7 +39,7 @@ const Footer = () => {
               <li>
                 <Link
                   className="text-gray-700 transition hover:text-gray-700/75"
-                  to="/"
+                  to="/alltoy"
                 >
                   AllToy
                 </Link>
@@ -160,6 +160,9 @@ const Footer = () => {
             </li>
           </ul>
         </div>
+        <p className="text-center m-6 text-slate-500">
+          © 2023 Toy Mania. All rights reserved.
+        </p>
       </footer>
     </div>
   );

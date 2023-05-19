@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import ReviewSection from "./ReviewSection";
 
 const Section1 = () => {
   useEffect(() => {
@@ -27,28 +28,21 @@ const Section1 = () => {
 
               <div className="p-8 sm:p-16 lg:p-24">
                 <h2 className="text-2xl bg-gradient-to-r  from-green-300 via-blue-500 to-purple-600 bg-clip-text  text-transparent font-bold sm:text-3xl">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Tempore, debitis.
+                  Half Off: Unleash Your Imagination at Half the Price!
                 </h2>
 
                 <p className="mt-4 text-gray-600">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Aliquid, molestiae! Quidem est esse numquam odio deleniti,
-                  beatae, magni dolores provident quaerat totam eos, aperiam
-                  architecto eius quis quibusdam fugiat dicta.
+                  Huge Savings: Enjoy a Whopping 50% Discount on Kids' Toys and
+                  Games! Limited Time Offer, Shop Now and Delight Your Little
+                  Ones
                 </p>
-
-                <a
-                  href="#"
-                  className="mt-8 inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
-                >
-                  Get in Touch
-                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <ReviewSection />
     </div>
   );
 };

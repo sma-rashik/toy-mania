@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Blog = () => {
+  useEffect(() => {
+    document.title = "ToyMania | Blog";
+  }, []);
   return (
     <div>
       <section className="relative mt-10  mb-11   bg-[url(https://i.ibb.co/jbRfkZZ/hand-drawn-christmas-toys-background-23-2148758008.jpg)] bg-cover bg-center bg-no-repeat">

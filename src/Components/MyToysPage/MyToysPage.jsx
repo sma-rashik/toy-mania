@@ -85,6 +85,9 @@ const MyToysPage = () => {
       }
     });
   };
+  useEffect(() => {
+    document.title = "ToyMania | MyToysPage";
+  }, []);
 
   return (
     <>
