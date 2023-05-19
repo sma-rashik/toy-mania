@@ -1,20 +1,23 @@
 import React, { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const MyToysPage = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
 
   useEffect(() => {
-    // Fetch the toys data for the logged-in user
-    fetch(`http://localhost:5000/myToys`, {
+    // Fetch all toys
+    fetch("http://localhost:5000/addtoys", {
       method: "GET",
       headers: {},
     })
       .then((res) => res.json())
       .then((data) => {
-        setToys(data);
+        // Filter the toys based on the logged-in user's ID
+        const userToys = data.filter((toy) => toy.userId === user.userId);
+        setToys(userToys);
       })
       .catch((error) => {
         console.error("Error fetching toys:", error);
@@ -28,7 +31,9 @@ const MyToysPage = () => {
   };
 
   const handleDeleteToy = (toyId) => {
+    console.log(toyId);
     // Confirm the delete action before removing the toy
+
     Swal.fire({
       title: "Confirmation",
       text: "Are you sure you want to delete this toy?",
@@ -43,13 +48,11 @@ const MyToysPage = () => {
         // Delete the toy
         fetch(`http://localhost:5000/toys/${toyId}`, {
           method: "DELETE",
-          headers: {
-            Authorization: "Bearer {accessToken}",
-          },
         })
           .then((res) => res.json())
           .then((data) => {
-            if (data.success) {
+            console.log(data);
+            if (data.deletedCount > 0) {
               // Toy deleted successfully
               Swal.fire({
                 title: "Deleted!",
@@ -79,47 +82,71 @@ const MyToysPage = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-3xl font-semibold underline mb-10 text-center">
-        My Toys
-      </h1>
-      {toys.length === 0 ? (
-        <p>No toys found.</p>
-      ) : (
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Description</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {toys.map((toy) => (
-              <tr key={toy._id}>
-                <td>{toy.name}</td>
-                <td>{toy.price}</td>
-                <td>{toy.quantity}</td>
-                <td>{toy.description}</td>
-                <td>
-                  <button
-                    onClick={() => handleUpdateToy(toy._id)}
-                    className="mr-2"
-                  >
-                    Update
-                  </button>
-                  <button onClick={() => handleDeleteToy(toy._id)}>
-                    Delete
-                  </button>
-                </td>
+    <>
+      <div className="overflow-x-auto mt-8">
+        <h1 className="text-5xl text-cyan-400 text-center m-4 mt-4 font-semibold font-mono underline">
+          My Toys
+        </h1>
+        {toys.length === 0 ? (
+          <p>No toys found.</p>
+        ) : (
+          <table className="min-w-full mb-5 divide-y-2 divide-gray-200 bg-white text-sm">
+            <thead className="ltr:text-left rtl:text-right">
+              <tr>
+                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                  Toy Image
+                </th>
+                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                  Name
+                </th>
+                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                  Available Quantity
+                </th>
+                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                  Price
+                </th>
+                <th className="px-4 py-2"></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
-    </div>
+            </thead>
+
+            <tbody className="divide-y text-center divide-gray-200">
+              {toys.map((toy) => (
+                <tr key={toy._id}>
+                  <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                    <img className="w-28 h-28" src={toy.picture} alt="" />
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2 font-semibold text-gray-700">
+                    {toy.name}
+                  </td>
+                  <td className="whitespace-nowrap font-semibold px-4 py-2 text-gray-700">
+                    {toy.quantity}
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2 font-semibold text-gray-700">
+                    ${toy.price}
+                  </td>
+                  <td className="whitespace-nowrap px-4 py-2">
+                    <Link to={`/updatetoy/${toy._id}`}>
+                      <button
+                        onClick={() => handleUpdateToy(toy._id)}
+                        className="mr-2 btn btn-link"
+                      >
+                        Update
+                      </button>
+                    </Link>
+                    <button
+                      className="btn btn-link"
+                      onClick={() => handleDeleteToy(toy._id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
+    </>
   );
 };
 

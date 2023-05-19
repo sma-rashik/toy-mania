@@ -1,14 +1,12 @@
-import React, { useRef } from "react";
+import React from "react";
 import Swal from "sweetalert2";
 
 const AddToys = () => {
-  const formRef = useRef(null);
-
   const handleAddToy = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
-    const photo = form.photo.value;
+    const name = form.toyName.value;
+    const picture = form.picture.value;
     const category = form.category.value;
     const rating = form.rating.value;
     const price = form.price.value;
@@ -16,7 +14,7 @@ const AddToys = () => {
     const quantity = form.quantity.value;
     const newToy = {
       name,
-      photo,
+      picture,
       category,
       rating,
       price,
@@ -36,13 +34,11 @@ const AddToys = () => {
         console.log(data);
         if (data.insertedId > 0) {
           Swal.fire({
-            title: "Success!",
-            text: "Toys added",
+            title: "success",
+            text: "Toy added.",
             icon: "success",
-            confirmButtonText: "Cool",
+            confirmButtonText: "OK",
           });
-          // Reset the form
-          formRef.current.reset();
         }
       });
   };
@@ -61,25 +57,20 @@ const AddToys = () => {
             </div>
 
             <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-              <form
-                ref={formRef}
-                onSubmit={handleAddToy}
-                action=""
-                className="space-y-4"
-              >
+              <form onSubmit={handleAddToy} action="" className="space-y-4">
                 <h1 className="text-3xl font-semibold underline mb-10 text-center">
                   Add Toys Here:
                 </h1>
                 <div>
                   <label className="sr-only" htmlFor="name">
-                    Photo Url
+                    picture Url
                   </label>
                   <input
                     className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                    placeholder="Photo Url"
+                    placeholder="picture Url"
                     type="url"
-                    name="photo"
-                    id="photo"
+                    name="picture"
+                    id="picture"
                   />
                 </div>
 
@@ -91,7 +82,7 @@ const AddToys = () => {
                     <input
                       className="w-full rounded-lg border-gray-200 p-3 text-sm"
                       placeholder="Name "
-                      name="name"
+                      name="toyName"
                       type="text"
                       id="name"
                     />
