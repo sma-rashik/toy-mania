@@ -7,6 +7,7 @@ import "aos/dist/aos.css";
 
 const TabCompo = () => {
   const [datas, setDatas] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,6 +17,7 @@ const TabCompo = () => {
         );
         const data = await response.json();
         setDatas(data);
+        setIsLoading(false); // Set isLoading to false once data is fetched
       } catch (error) {
         console.log("Error fetching tab data:", error);
       }
@@ -37,95 +39,115 @@ const TabCompo = () => {
       </TabList>
 
       <div className=" gap-4 m-20">
-        <TabPanel>
-          {datas
-            .filter((data) => data.subCategory === "Soft Toys")
-            .map((data) => (
-              <div
-                key={data.name}
-                className="card mb-4 flex card-compact bg-base-100 shadow-xl"
-              >
-                <figure>
-                  <img
-                    data-aos="fade-up"
-                    className="h-72 w-96"
-                    src={data.picture}
-                    alt="Toy"
-                  />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title font-bold">Name: {data.name}</h2>
-                  <p className="text-xl">Price: ${data.price}</p>
-                  <p className="text-xl">Rating: {data.rating}</p>
-                  <div className="card-actions justify-end">
-                    <Link to={`/toys/${data._id}`}>
-                      <button className="btn btn-link">View Details</button>
-                    </Link>
+        {isLoading ? (
+          <div className="flex justify-center items-center h-48">
+            <div>
+              <h1> Please Wait or Reload The page</h1>
+              <progress className="progress w-56"></progress>
+            </div>
+          </div>
+        ) : (
+          <>
+            <TabPanel>
+              {/* Soft Toys */}
+              {datas
+                .filter((data) => data.subCategory === "Soft Toys")
+                .map((data) => (
+                  <div
+                    key={data.name}
+                    className="card mb-4 flex card-compact bg-base-100 shadow-xl"
+                  >
+                    <figure>
+                      <img
+                        data-aos="fade-up"
+                        className="h-72 w-96"
+                        src={data.picture}
+                        alt="Toy"
+                      />
+                    </figure>
+                    <div className="card-body">
+                      <h2 className="card-title font-bold">
+                        Name: {data.name}
+                      </h2>
+                      <p className="text-xl">Price: ${data.price}</p>
+                      <p className="text-xl">Rating: {data.rating}</p>
+                      <div className="card-actions justify-end">
+                        <Link to={`/toys/${data._id}`}>
+                          <button className="btn btn-link">View Details</button>
+                        </Link>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
-        </TabPanel>
+                ))}
+            </TabPanel>
 
-        <TabPanel>
-          {datas
-            .filter((data) => data.subCategory === "Board Games")
-            .map((data) => (
-              <div
-                key={data.name}
-                className="card mb-4 flex card-compact bg-base-100 shadow-xl"
-              >
-                <figure>
-                  <img
-                    data-aos="fade-down"
-                    className="h-72 w-96"
-                    src={data.picture}
-                    alt="Toy"
-                  />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title font-bold">Name: {data.name}</h2>
-                  <p className="text-xl">Price: ${data.price}</p>
-                  <p className="text-xl">Rating: {data.rating}</p>
-                  <div className="card-actions justify-end">
-                    <Link to={`/toys/${data._id}`}>
-                      <button className="btn btn-link">View Details</button>
-                    </Link>
+            <TabPanel>
+              {/* Board Games */}
+              {datas
+                .filter((data) => data.subCategory === "Board Games")
+                .map((data) => (
+                  <div
+                    key={data.name}
+                    className="card mb-4 flex card-compact bg-base-100 shadow-xl"
+                  >
+                    <figure>
+                      <img
+                        data-aos="fade-down"
+                        className="h-72 w-96"
+                        src={data.picture}
+                        alt="Toy"
+                      />
+                    </figure>
+                    <div className="card-body">
+                      <h2 className="card-title font-bold">
+                        Name: {data.name}
+                      </h2>
+                      <p className="text-xl">Price: ${data.price}</p>
+                      <p className="text-xl">Rating: {data.rating}</p>
+                      <div className="card-actions justify-end">
+                        <Link to={`/toys/${data._id}`}>
+                          <button className="btn btn-link">View Details</button>
+                        </Link>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
-        </TabPanel>
+                ))}
+            </TabPanel>
 
-        <TabPanel>
-          {datas
-            .filter((data) => data.subCategory === "Sports")
-            .map((data) => (
-              <div
-                key={data.name}
-                className="card mb-4 flex card-compact bg-base-100 shadow-xl"
-              >
-                <figure>
-                  <img
-                    data-aos="fade-left"
-                    className="h-72 w-96"
-                    src={data.picture}
-                    alt="Toy"
-                  />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title font-bold">Name: {data.name}</h2>
-                  <p className="text-xl">Price: ${data.price}</p>
-                  <p className="text-xl">Rating: {data.rating}</p>
-                  <div className="card-actions justify-end">
-                    <Link to={`/toys/${data._id}`}>
-                      <button className="btn btn-link">View Details</button>
-                    </Link>
+            <TabPanel>
+              {/* Sports */}
+              {datas
+                .filter((data) => data.subCategory === "Sports")
+                .map((data) => (
+                  <div
+                    key={data.name}
+                    className="card mb-4 flex card-compact bg-base-100 shadow-xl"
+                  >
+                    <figure>
+                      <img
+                        data-aos="fade-left"
+                        className="h-72 w-96"
+                        src={data.picture}
+                        alt="Toy"
+                      />
+                    </figure>
+                    <div className="card-body">
+                      <h2 className="card-title font-bold">
+                        Name: {data.name}
+                      </h2>
+                      <p className="text-xl">Price: ${data.price}</p>
+                      <p className="text-xl">Rating: {data.rating}</p>
+                      <div className="card-actions justify-end">
+                        <Link to={`/toys/${data._id}`}>
+                          <button className="btn btn-link">View Details</button>
+                        </Link>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
-        </TabPanel>
+                ))}
+            </TabPanel>
+          </>
+        )}
       </div>
     </Tabs>
   );

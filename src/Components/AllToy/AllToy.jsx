@@ -5,6 +5,7 @@ import Toy from "./Toy";
 const AllToy = () => {
   const allToys = useLoaderData().slice(0, 20);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   // Filter toys based on search query
   const filteredToys = allToys.filter((toy) =>
@@ -14,9 +15,18 @@ const AllToy = () => {
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
   };
+
   useEffect(() => {
     document.title = "ToyMania | AllToy";
+
+    // Simulating data loading with a delay
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
   }, []);
+
   return (
     <>
       <section className="relative mt-10 mb-5 bg-[url(https://i.ibb.co/jbRfkZZ/hand-drawn-christmas-toys-background-23-2148758008.jpg)] bg-cover bg-center bg-no-repeat">
@@ -53,11 +63,20 @@ const AllToy = () => {
         </div>
       </div>
 
-      <div>
-        {filteredToys.map((toy) => (
-          <Toy key={toy._id} toy={toy}></Toy>
-        ))}
-      </div>
+      {isLoading ? (
+        <div className="flex justify-center items-center h-48">
+          <div>
+            <h1> Please Wait or Reload The page</h1>
+            <progress className="progress w-56"></progress>
+          </div>
+        </div>
+      ) : (
+        <div>
+          {filteredToys.map((toy) => (
+            <Toy key={toy._id} toy={toy}></Toy>
+          ))}
+        </div>
+      )}
     </>
   );
 };
