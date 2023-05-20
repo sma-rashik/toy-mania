@@ -7,7 +7,7 @@ const AddToys = () => {
     const form = event.target;
     const name = form.toyName.value;
     const picture = form.picture.value;
-    const category = form.category.value;
+    const subCategory = form.subCategory.value;
     const rating = form.rating.value;
     const price = form.price.value;
     const description = form.description.value;
@@ -15,7 +15,7 @@ const AddToys = () => {
     const newToy = {
       name,
       picture,
-      category,
+      subCategory,
       rating,
       price,
       description,
@@ -94,19 +94,16 @@ const AddToys = () => {
                   </div>
 
                   <div>
-                    <label className="sr-only" htmlFor="category">
-                      Sub-category
+                    <label className="sr-only" htmlFor="phone">
+                      Sub-Category
                     </label>
-                    <select
+                    <input
                       className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                      name="category"
-                      id="category"
-                    >
-                      <option value="">Select sub-category</option>
-                      <option value="softToys">Soft Toys</option>
-                      <option value="boardGames">Board Games</option>
-                      <option value="sports">Sports</option>
-                    </select>
+                      placeholder="Sub-Category.(Soft Toys/Board Games/Sports)"
+                      type="text"
+                      name="subCategory"
+                      id="phone"
+                    />
                   </div>
                 </div>
 
