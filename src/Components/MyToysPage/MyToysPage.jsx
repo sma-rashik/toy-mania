@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const MyToysPage = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
-  const [sort, setSort] = useState("asc"); // Sort order state, "asc" or "desc"
+  const [sort, setSort] = useState("asc");
 
   useEffect(() => {
     // Fetch toys with sorting
@@ -26,18 +26,15 @@ const MyToysPage = () => {
   }, [user, sort]);
 
   const handleSortChange = (e) => {
-    setSort(e.target.value); // Update the sort state when the user selects a different sorting order
+    setSort(e.target.value);
   };
 
   const handleUpdateToy = (toyId) => {
-    // Handle the update action for a specific toy
-    // You can show a modal or navigate to a different route for updating the toy information
     console.log("Update toy:", toyId);
   };
 
   const handleDeleteToy = (toyId) => {
     console.log(toyId);
-    // Confirm the delete action before removing the toy
 
     Swal.fire({
       title: "Confirmation",
