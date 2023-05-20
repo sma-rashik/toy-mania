@@ -14,8 +14,9 @@ const Footer = () => {
           </div>
 
           <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt
-            consequuntur amet culpa cum itaque neque.
+            Discover a world of joy and imagination with Toy Mania. Shop the
+            best selection of toys, games, and more, and make every moment
+            memorable for your little ones.
           </p>
 
           <nav aria-label="Footer Nav" className="mt-12">
