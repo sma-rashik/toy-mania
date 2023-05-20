@@ -54,84 +54,82 @@ const Signup = () => {
             Consectetur adipisicing elit. Obcaecati sunt dolores deleniti
             inventore quaerat mollitia?
           </p>
+          <div className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
+            <form onSubmit={handleSignup} action="">
+              <p className="text-center text-lg font-medium">Sign Up</p>
 
-          <form
-            onSubmit={handleSignup}
-            action=""
-            className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
-          >
-            <p className="text-center text-lg font-medium">Sign Up</p>
+              <div>
+                <label htmlFor="email" className="sr-only">
+                  Name
+                </label>
 
-            <div>
-              <label htmlFor="email" className="sr-only">
-                Name
-              </label>
-
-              <div className="relative">
-                <input
-                  type="text"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                  name="name"
-                  placeholder="Enter Your name"
-                />
+                <div className="relative">
+                  <input
+                    type="text"
+                    className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                    name="name"
+                    placeholder="Enter Your name"
+                  />
+                </div>
               </div>
-            </div>
-            <div>
-              <label htmlFor="email" className="sr-only">
-                Email
-              </label>
+              <div>
+                <label htmlFor="email" className="sr-only">
+                  Email
+                </label>
 
-              <div className="relative">
-                <input
-                  type="email"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                  name="email"
-                  placeholder="Enter email"
-                />
+                <div className="relative">
+                  <input
+                    type="email"
+                    className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                    name="email"
+                    placeholder="Enter email"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div>
-              <label htmlFor="password" className="sr-only">
-                Password
-              </label>
+              <div>
+                <label htmlFor="password" className="sr-only">
+                  Password
+                </label>
 
-              <div className="relative">
-                <input
-                  type="password"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                  name="password"
-                  placeholder="Enter password"
-                />
+                <div className="relative">
+                  <input
+                    type="password"
+                    className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                    name="password"
+                    placeholder="Enter password"
+                  />
+                </div>
               </div>
-            </div>
-            <div>
-              <label htmlFor="password" className="sr-only">
-                Photo URL
-              </label>
+              <div>
+                <label htmlFor="password" className="sr-only">
+                  Photo URL
+                </label>
 
-              <div className="relative">
-                <input
-                  type="url"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                  name="photo"
-                  placeholder=" Photo URL"
-                />
+                <div className="relative">
+                  <input
+                    type="url"
+                    className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                    name="photo"
+                    placeholder=" Photo URL"
+                  />
+                </div>
               </div>
-            </div>
 
-            <button className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white">
-              Sign Up
-            </button>
+              <button className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white">
+                Sign Up
+              </button>
 
-            <p className="text-center text-sm text-gray-500">
-              Already Have an Accoount?
-              <Link className="underline" to="/login">
-                Sign in
-              </Link>
-            </p>
+              <p className="text-center text-sm text-gray-500">
+                Already Have an Accoount?
+                <Link className="underline" to="/login">
+                  Sign in
+                </Link>
+              </p>
+            </form>
+
             <SocialAuth />
-          </form>
+          </div>
         </div>
       </div>
     </div>

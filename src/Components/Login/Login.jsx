@@ -57,61 +57,58 @@ const Login = () => {
             Start your toy adventure now. Log in to Toy Mania and explore a
             world of fun and excitement for kids of all ages.
           </p>
+          <div className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
+            <form onSubmit={handleLogin} action="">
+              <p className="text-center text-lg font-medium">
+                Sign in to your account
+              </p>
 
-          <form
-            onSubmit={handleLogin}
-            action=""
-            className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
-          >
-            <p className="text-center text-lg font-medium">
-              Sign in to your account
-            </p>
+              <div>
+                <label htmlFor="email" className="sr-only">
+                  Email
+                </label>
 
-            <div>
-              <label htmlFor="email" className="sr-only">
-                Email
-              </label>
-
-              <div className="relative">
-                <input
-                  type="email"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                  name="email"
-                  placeholder="Enter email"
-                />
+                <div className="relative">
+                  <input
+                    type="email"
+                    className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                    name="email"
+                    placeholder="Enter email"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div>
-              <label htmlFor="password" className="sr-only">
-                Password
-              </label>
+              <div>
+                <label htmlFor="password" className="sr-only">
+                  Password
+                </label>
 
-              <div className="relative">
-                <input
-                  type="password"
-                  className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                  name="password"
-                  placeholder="Enter password"
-                />
+                <div className="relative">
+                  <input
+                    type="password"
+                    className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                    name="password"
+                    placeholder="Enter password"
+                  />
+                </div>
               </div>
-            </div>
 
-            <button
-              type="submit"
-              className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
-            >
-              Sign in
-            </button>
+              <button
+                type="submit"
+                className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+              >
+                Sign in
+              </button>
 
-            <p className="text-center text-sm text-gray-500">
-              No account?
-              <Link className="underline" to="/signup">
-                Sign up
-              </Link>
-            </p>
+              <p className="text-center text-sm text-gray-500">
+                No account?
+                <Link className="underline" to="/signup">
+                  Sign up
+                </Link>
+              </p>
+            </form>
             <SocialAuth />
-          </form>
+          </div>
         </div>
       </div>
     </div>
