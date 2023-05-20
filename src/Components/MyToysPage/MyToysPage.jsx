@@ -10,7 +10,7 @@ const MyToysPage = () => {
 
   useEffect(() => {
     // Fetch toys with sorting
-    fetch(`http://localhost:5000/toys?sort=${sort}`, {
+    fetch(`https://toy-assignment-11-server.vercel.app/toys?sort=${sort}`, {
       method: "GET",
       headers: {},
     })
@@ -51,7 +51,7 @@ const MyToysPage = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         // Delete the toy
-        fetch(`http://localhost:5000/toys/${toyId}`, {
+        fetch(`https://toy-assignment-11-server.vercel.app/toys/${toyId}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

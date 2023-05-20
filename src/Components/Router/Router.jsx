@@ -57,18 +57,22 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/toys/${params.id}`),
+          fetch(
+            `https://toy-assignment-11-server.vercel.app/toys/${params.id}`
+          ),
       },
       {
         path: "/updatetoy/:id",
         element: <UpdateToy />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/toys/${params.id}`),
+          fetch(
+            `https://toy-assignment-11-server.vercel.app/toys/${params.id}`
+          ),
       },
       {
         path: "/alltoy",
         element: <AllToy />,
-        loader: () => fetch(`http://localhost:5000/toys`),
+        loader: () => fetch(`https://toy-assignment-11-server.vercel.app/toys`),
       },
     ],
   },
