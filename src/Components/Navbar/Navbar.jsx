@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import img from "../../assets/logo.png";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -82,11 +83,13 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <Link
-            className="text-3xl font-semibold font-serif underline hover:text-blue-500"
-            to="/"
-          >
-            Toy mania
+          <Link to="/">
+            <div className="flex   hover:text-blue-500">
+              <img className="w-24 h-24" src={img} alt="" />
+              <h1 className="text-lg md:text-3xl mt-8 font-semibold underline font-serif">
+                Toy mania
+              </h1>{" "}
+            </div>
           </Link>
         </div>
 
